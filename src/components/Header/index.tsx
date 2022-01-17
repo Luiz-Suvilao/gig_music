@@ -1,6 +1,4 @@
-import { GetStaticProps } from 'next';
 import { useEffect, useState } from 'react';
-import Image from 'next/image';
 
 import Prismic from '@prismicio/client';
 import { RichText } from 'prismic-dom';

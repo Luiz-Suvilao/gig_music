@@ -42,7 +42,7 @@ const Home = ({ content }: ContentProps) => {
                     <section className={styles.ctaText}>
                         <h1>{content.title}</h1>
                         <span>{content.subtitle}</span>
-                        <a href={content.linkAction} target={content.linkActionTarget}>
+                        <a rel="noreferrer" href={content.linkAction} target={content.linkActionTarget}>
                             <button>{content.buttonTitle}</button>
                         </a>
                     </section>
@@ -77,7 +77,7 @@ const Home = ({ content }: ContentProps) => {
                 <div className={styles.nextLevelContent}>
                     <h2>Mais de <span>15 mil</span> alunos já levaram seu sonho musical ao próximo nível.</h2>
                     <span>E você vai perder a chance de evoluir de uma vez por todas?</span>
-                    <a href={content.linkAction} target={content.linkActionTarget}>
+                    <a rel="noreferrer" href={content.linkAction} target={content.linkActionTarget}>
                         <button>Começar agora</button>
                     </a>
                     <p className={styles.copy}>&copy; Gig Music 2022</p>

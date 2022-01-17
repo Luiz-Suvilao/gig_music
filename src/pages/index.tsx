@@ -1,8 +1,34 @@
+import { GetStaticProps } from 'next';
 import Head from 'next/head';
+
+import Prismic from '@prismicio/client';
+import { RichText } from 'prismic-dom';
+
+import { getPrismicClient } from '../services/prismic';
 
 import styles from '../styles/home.module.scss';
 
-const Home = () => {
+type Content = {
+    title:string;
+    subtitle:string;
+    linkAction:string;
+    linkActionTarget:string;
+    buttonTitle:string;
+    sectionTwoTitle:string;
+    sectionTwoSubtitle:string;
+    sectionTwoBanner:string;
+    sectionTwoBannerAlt:string;
+    sectionTreeTitle:string;
+    sectionTreeSubtitle:string;
+    sectionTreeBanner:string;
+    sectionTreeBannerAlt:string;
+}
+
+interface ContentProps {
+    content: Content;
+}
+
+const Home = ({ content }: ContentProps) => {
     return (
         <>
             <Head>
@@ -12,10 +38,10 @@ const Home = () => {
             <main className={styles.container}>
                 <div className={styles.containerHeader}>
                     <section className={styles.ctaText}>
-                        <h1>Lorem Ipsum idolor amet</h1>
-                        <span>Algum texto qualquer falando algo aleatório</span>
-                        <a href="#">
-                            <button>Começar agora</button>
+                        <h1>{content.title}</h1>
+                        <span>{content.subtitle}</span>
+                        <a href={content.linkAction} target={content.linkActionTarget}>
+                            <button>{content.buttonTitle}</button>
                         </a>
                     </section>
 
@@ -26,11 +52,11 @@ const Home = () => {
 
                 <div className={styles.sectionContent}>
                    <section>
-                       <h2>Mais um titulo que dps vamos mudar</h2>
-                       <span>Um subtitle qualquer</span>
+                       <h2>{content.sectionTwoTitle}</h2>
+                       <span>{content.sectionTwoSubtitle}</span>
                    </section>
 
-                    <img src="http://2.bp.blogspot.com/-KszEsyrYRSE/VPfxXFy0CII/AAAAAAAAkTE/MNseO3hKlkQ/s1600/guitarra-em-png-queroimagem-cei%C3%A7a-crispim.png" />
+                    <img src={content.sectionTwoBanner} alt={content.sectionTwoBannerAlt} />
                 </div>
 
                 <hr className={styles.divider} />
@@ -39,8 +65,8 @@ const Home = () => {
                     <img src="http://2.bp.blogspot.com/-KszEsyrYRSE/VPfxXFy0CII/AAAAAAAAkTE/MNseO3hKlkQ/s1600/guitarra-em-png-queroimagem-cei%C3%A7a-crispim.png" />
 
                     <section>
-                        <h2>Mais um titulo que dps vamos mudar</h2>
-                        <span>Um subtitle qualquer</span>
+                        <h2>{content.sectionTreeTitle}</h2>
+                        <span>{content.sectionTreeSubtitle}</span>
                     </section>
                 </div>
 
@@ -49,7 +75,7 @@ const Home = () => {
                 <div className={styles.nextLevelContent}>
                     <h2>Mais de <span>15 mil</span> alunos já levaram seu sonho musical ao próximo nível.</h2>
                     <span>E você vai perder a chance de evoluir de uma vez por todas?</span>
-                    <a href="#">
+                    <a href={content.linkAction} target={content.linkActionTarget}>
                         <button>Começar agora</button>
                     </a>
                     <p className={styles.copy}>&copy; Gig Music 2022</p>
@@ -58,5 +84,48 @@ const Home = () => {
         </>
     )
 };
+
+export const getStaticProps: GetStaticProps = async () => {
+    const prismic = getPrismicClient();
+    const response = await prismic.query([
+        Prismic.predicates.at('document.type', 'home')
+    ]);
+
+    const {
+        title,
+        sub_title,
+        link_action,
+        button_title,
+        section_two_title,
+        section_two_sub_title,
+        section_two_banner,
+        section_tree_title,
+        section_tree_sub_title,
+        section_tree_banner,
+    } = response.results[0].data;
+
+    const content = {
+        title: RichText.asText(title),
+        subtitle: RichText.asText(sub_title),
+        linkAction: link_action.url,
+        linkActionTarget: link_action.target,
+        buttonTitle: RichText.asText(button_title),
+        sectionTwoTitle: RichText.asText(section_two_title),
+        sectionTwoSubtitle: RichText.asText(section_two_sub_title),
+        sectionTwoBanner: section_two_banner.url,
+        sectionTwoBannerAlt: section_two_banner.alt,
+        sectionTreeTitle: RichText.asText(section_tree_title),
+        sectionTreeSubtitle: RichText.asText(section_tree_sub_title),
+        sectionTreeBanner: section_tree_banner.url,
+        sectionTreeBannerAlt: section_tree_banner.alt,
+    }
+
+    return {
+        props: {
+            content
+        },
+        revalidate: 60 * 2
+    }
+}
 
 export default Home;

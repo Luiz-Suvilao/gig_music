@@ -33,7 +33,6 @@ const Header = () => {
                 link_button,
                 text_button
             } = response.results[0].data;
-            console.log(response.results[0].data);
 
             const headerData = {
                 logo: logo_header.url,

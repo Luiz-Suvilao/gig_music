@@ -78,3 +78,14 @@
     }
   }
 }
+
+.empty {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 2rem;
+
+  h1 {
+    text-align: center;
+    color: var(--white);
+  }
+}

@@ -73,6 +73,14 @@ const Posts = ({ posts: postsBlog, page, totalPage }: PostsProps) => {
         setPosts(retrievedPosts);
     }
 
+    if (posts.length === 0) {
+        return (
+            <div className={styles.empty}>
+                <h1>Ainda não cadastramos nenhum post...</h1>
+            </div>
+        )
+    }
+
     return (
         <>
             <Head>

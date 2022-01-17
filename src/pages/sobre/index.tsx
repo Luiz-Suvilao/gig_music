@@ -42,15 +42,15 @@ const Sobre = ({ about }: AboutProps) => {
 
                         <p>{about.description}</p>
 
-                        <a href={about.facebook} target="_blank">
+                        <a rel="noreferrer" href={about.facebook} target="_blank">
                             <FiFacebook size={40} />
                         </a>
 
-                        <a href={about.instagram} target="_blank">
+                        <a rel="noreferrer" href={about.instagram} target="_blank">
                             <FiInstagram size={40} />
                         </a>
 
-                        <a href={about.youtube} target="_blank">
+                        <a rel="noreferrer" href={about.youtube} target="_blank">
                             <FiYoutube size={40} />
                         </a>
                     </section>

@@ -82,7 +82,7 @@ const Posts = ({ posts: postsBlog, page, totalPage }: PostsProps) => {
             <main className={styles.container}>
                 <div className={styles.posts}>
                     {posts.map(post => (
-                        <Link key={post.slug} href={post.link ? post.link : ``}>
+                        <Link key={post.slug} href={post.link ? post.link : `/posts/${post.slug}`}>
                             <a key={post.slug} target={post.linkTarget}>
                                 <Image
                                     className={styles.img}
@@ -143,7 +143,6 @@ export const getStaticProps: GetStaticProps = async () => {
     });
 
     const posts = response.results.map(post => {
-        console.log(post);
         return {
             slug: post.uid,
             title: RichText.asText(post.data.title),

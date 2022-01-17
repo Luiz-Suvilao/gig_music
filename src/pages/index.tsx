@@ -14,6 +14,8 @@ type Content = {
     linkAction:string;
     linkActionTarget:string;
     buttonTitle:string;
+    banner:string;
+    bannerAlt:string;
     sectionTwoTitle:string;
     sectionTwoSubtitle:string;
     sectionTwoBanner:string;
@@ -45,7 +47,7 @@ const Home = ({ content }: ContentProps) => {
                         </a>
                     </section>
 
-                    <img src="http://2.bp.blogspot.com/-KszEsyrYRSE/VPfxXFy0CII/AAAAAAAAkTE/MNseO3hKlkQ/s1600/guitarra-em-png-queroimagem-cei%C3%A7a-crispim.png" />
+                    <img src={content.banner} alt={content.bannerAlt} />
                 </div>
 
                 <hr className={styles.divider} />
@@ -62,7 +64,7 @@ const Home = ({ content }: ContentProps) => {
                 <hr className={styles.divider} />
 
                 <div className={styles.sectionContent}>
-                    <img src="http://2.bp.blogspot.com/-KszEsyrYRSE/VPfxXFy0CII/AAAAAAAAkTE/MNseO3hKlkQ/s1600/guitarra-em-png-queroimagem-cei%C3%A7a-crispim.png" />
+                    <img src={content.sectionTreeBanner} alt={content.sectionTreeBannerAlt} />
 
                     <section>
                         <h2>{content.sectionTreeTitle}</h2>
@@ -96,6 +98,7 @@ export const getStaticProps: GetStaticProps = async () => {
         sub_title,
         link_action,
         button_title,
+        banner,
         section_two_title,
         section_two_sub_title,
         section_two_banner,
@@ -110,6 +113,8 @@ export const getStaticProps: GetStaticProps = async () => {
         linkAction: link_action.url,
         linkActionTarget: link_action.target,
         buttonTitle: RichText.asText(button_title),
+        banner: banner.url,
+        bannerAlt: banner.alt,
         sectionTwoTitle: RichText.asText(section_two_title),
         sectionTwoSubtitle: RichText.asText(section_two_sub_title),
         sectionTwoBanner: section_two_banner.url,

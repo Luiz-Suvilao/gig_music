@@ -10,8 +10,11 @@ yarn dev
 
 Abra [http://localhost:3000](http://localhost:3000) no seu navegador e veja o resultado!
 
-Esse projeto usa como CMS o [prismic](https://prismic.io/)
+## Tecnologias
+
+Esse projeto usa como CMS o [prismic](https://prismic.io/) <br />
+Como framework o [nextjs](https://nextjs.org/)
 
 ## Motivação
-Esse projeto foi criado para divulgar a escola de música Gig Music
+Esse projeto foi criado para divulgar a escola de música Gig Music,
 dando total liberdade de edição ao CEO da escola, Carlos Faria.

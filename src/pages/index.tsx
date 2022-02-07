@@ -6,6 +6,8 @@ import { RichText } from 'prismic-dom';
 
 import { getPrismicClient } from '../services/prismic';
 
+import Show from '/public/images/show.jpeg';
+
 import styles from '../styles/home.module.scss';
 
 type Content = {
@@ -24,6 +26,9 @@ type Content = {
     sectionTreeSubtitle:string;
     sectionTreeBanner:string;
     sectionTreeBannerAlt:string;
+    footerTitle:string;
+    finalSectionBanner:string;
+    finalSectionBannerAlt:string;
 }
 
 interface ContentProps {
@@ -74,13 +79,17 @@ const Home = ({ content }: ContentProps) => {
 
                 <hr className={styles.divider} />
 
-                <div className={styles.nextLevelContent}>
-                    <h2>Mais de <span>15 mil</span> alunos já levaram seu sonho musical ao próximo nível.</h2>
-                    <span>E você vai perder a chance de evoluir de uma vez por todas?</span>
-                    <a rel="noreferrer" href={content.linkAction} target={content.linkActionTarget}>
-                        <button>Começar agora</button>
-                    </a>
-                    <p className={styles.copy}>&copy; Gig Music 2022</p>
+                <div className={styles.nextLevel}>
+                    <section className={styles.nextLevelContent}>
+                        <h2>{content.footerTitle}</h2>
+                        <span>E você vai perder a chance de evoluir de uma vez por todas?</span>
+                        <a rel="noreferrer" href={content.linkAction} target={content.linkActionTarget}>
+                            <button>Fale conosco</button>
+                        </a>
+                        <p className={styles.copy}>&copy; Gig Music 2022</p>
+                    </section>
+
+                    <img  src={content.finalSectionBanner}/>
                 </div>
             </main>
         </>
@@ -105,6 +114,8 @@ export const getStaticProps: GetStaticProps = async () => {
         section_tree_title,
         section_tree_sub_title,
         section_tree_banner,
+        footer_title,
+        final_section_banner
     } = response.results[0].data;
 
     const content = {
@@ -123,6 +134,9 @@ export const getStaticProps: GetStaticProps = async () => {
         sectionTreeSubtitle: RichText.asText(section_tree_sub_title),
         sectionTreeBanner: section_tree_banner.url,
         sectionTreeBannerAlt: section_tree_banner.alt,
+        footerTitle: RichText.asText(footer_title),
+        finalSectionBanner: final_section_banner.url,
+        finalSectionBannerAlt: final_section_banner.alt,
     }
 
     return {

@@ -173,7 +173,7 @@ export const getStaticProps: GetStaticProps = async () => {
             page: response.page,
             totalPage: response.total_pages,
         },
-        revalidate: 60 * 2,
+        revalidate: 60 * 60,
     }
 }
 

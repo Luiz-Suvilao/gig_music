@@ -1,0 +1,24 @@
+{
+  "name": "Gig Music",
+  "short_name": "Gig Music",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "images/logo_gig.jpg",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+
+    {
+      "src": "images/logo_gig.jpg",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#111113",
+  "background_color": "#111113",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "splash_pages": null
+}

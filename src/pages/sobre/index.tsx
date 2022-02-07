@@ -17,8 +17,6 @@ import styles from './styles.module.scss';
 type About = {
     title:string;
     description:string;
-    banner:string;
-    bannerAlt:string;
     facebook:string;
     instagram:string;
     youtube:string;
@@ -54,8 +52,6 @@ const Sobre = ({ about }: AboutProps) => {
                             <FiYoutube size={40} />
                         </a>
                     </section>
-
-                    <img src={about.banner} alt={about.bannerAlt} />
                 </div>
             </main>
         </>
@@ -72,7 +68,6 @@ export const getStaticProps: GetStaticProps = async () => {
     const {
         title,
         description,
-        banner,
         facebook,
         instagram,
         youtube
@@ -81,8 +76,6 @@ export const getStaticProps: GetStaticProps = async () => {
     const about = {
         title: RichText.asText(title),
         description: RichText.asText(description),
-        banner: banner.url,
-        bannerAlt: banner.alt,
         facebook: facebook.url,
         instagram: instagram.url,
         youtube: youtube.url,

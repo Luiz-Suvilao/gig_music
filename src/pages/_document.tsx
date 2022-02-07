@@ -8,6 +8,11 @@ export default class MyDocument extends Document {
                     <link rel="preconnect" href="https://fonts.googleapis.com" />
                     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,300&family=Poppins:wght@400;500;700;900&display=swap" rel="stylesheet" />
                     <link rel="shortcut icon" href="/favicon.jpg" type="image/jpg" />
+                    <meta name = "description" content="Venha conhecer a Gig Music, a melhor escola de música da baixada." />
+                    <meta
+                        name="keywords"
+                        content="música, escola de música, gig music, guitarra, baixo, violão, canto, teclado, baixada, escola de musica na baixada, musica, escola de musica"
+                    />
                 </Head>
 
                 <body>

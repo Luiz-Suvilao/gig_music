@@ -89,7 +89,7 @@ const Home = ({ content }: ContentProps) => {
                         <p className={styles.copy}>&copy; Gig Music 2022</p>
                     </section>
 
-                    <img  src={content.finalSectionBanner}/>
+                    <img src={content.finalSectionBanner} alt={content.finalSectionBannerAlt}/>
                 </div>
             </main>
         </>

@@ -48,7 +48,7 @@ const Header = () => {
             <div className={styles.headerContent}>
                 <ActiveLink href="/" activeClassName={styles.active}>
                     <a>
-                        <img width={80} height={50} src={headerData.logo} alt={headerData.logoAlt}/>
+                        <img src={headerData.logo} alt={headerData.logoAlt}/>
                     </a>
                 </ActiveLink>
 

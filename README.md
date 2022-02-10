@@ -18,3 +18,8 @@ Como framework o [nextjs](https://nextjs.org/)
 ## Motivação
 Esse projeto foi criado para divulgar a escola de música Gig Music,
 dando total liberdade de edição ao CEO da escola, Carlos Faria.
+
+## Projeto em PRD
+
+
+![2022-02-10 17-22-28](https://user-images.githubusercontent.com/46581510/153490690-8fea7ba8-92fd-4947-98cb-1e9ad8ce9c1d.gif)

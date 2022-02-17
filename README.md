@@ -3,7 +3,7 @@
 Primeiro, instale as dependências do projeto:
 
 ```bash
-npm intall
+npm install
 # ou
 yarn
 ```

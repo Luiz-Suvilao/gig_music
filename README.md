@@ -1,6 +1,14 @@
 ## Começando com o projeto
 
-Primeiro, rode o servidor de desenvolvimento:
+Primeiro, instale as dependências do projeto:
+
+```bash
+npm intall
+# ou
+yarn
+```
+
+Em seguida, rode o servidor de desenvolvimento:
 
 ```bash
 npm run dev
